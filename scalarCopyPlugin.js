@@ -366,8 +366,10 @@
 
   // Add copy buttons to interfaces
   function addCopyButtons(openApi) {
-    // Find all interface sections
-    const sections = document.querySelectorAll('section[id^="tag/"]');
+    // Find all interface sections that don't have copy buttons yet
+    const sections = document.querySelectorAll(
+      'section[id^="tag/"]:not([data-copy-button-added])'
+    );
 
     sections.forEach((section) => {
       const sectionId = section.id;
@@ -393,7 +395,7 @@
 
           // Find h3 heading element
           const heading = section.querySelector("h3.section-header-label");
-          if (heading && !heading.querySelector(".copy-markdown-button")) {
+          if (heading) {
             // Create copy button
             const copyButton = createCopyButton(markdown, "Copy Markdown");
             copyButton.classList.add("copy-markdown-button");
@@ -404,6 +406,9 @@
             heading.parentNode.style.gap = "12px";
             copyButton.style.marginLeft = "auto";
             heading.parentNode.appendChild(copyButton);
+
+            // Mark this section as having a copy button added
+            section.setAttribute("data-copy-button-added", "true");
           }
         }
       }
