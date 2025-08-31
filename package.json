@@ -1,0 +1,28 @@
+{
+    "name": "scalar-copy-plugin",
+    "version": "1.0.0",
+    "description": "A browser plugin that adds Copy Markdown buttons to Scalar API documentation pages",
+    "main": "scalarCopyPlugin.js",
+    "scripts": {
+        "build": "uglifyjs scalarCopyPlugin.js -o scalarCopyPlugin.min.js -c -m --source-map \"url='scalarCopyPlugin.min.js.map'\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "scalar",
+        "api",
+        "documentation",
+        "markdown",
+        "copy",
+        "plugin"
+    ],
+    "author": "Amoyens1s",
+    "license": "MIT",
+    "devDependencies": {
+        "uglify-js": "^3.17.4"
+    },
+    "files": [
+        "scalarCopyPlugin.js",
+        "scalarCopyPlugin.min.js",
+        "scalarCopyPlugin.min.js.map"
+    ]
+}
